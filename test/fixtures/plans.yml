@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  plan_type: MyString
+  plan_description: MyString
+  price: 9.99
+  active: false
+  recurring: false
+
+two:
+  plan_type: MyString
+  plan_description: MyString
+  price: 9.99
+  active: false
+  recurring: false

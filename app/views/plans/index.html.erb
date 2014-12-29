@@ -1,0 +1,33 @@
+<h1>Listing plans</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Plan type</th>
+      <th>Plan description</th>
+      <th>Price</th>
+      <th>Active</th>
+      <th>Recurring</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @plans.each do |plan| %>
+      <tr>
+        <td><%= plan.plan_type %></td>
+        <td><%= plan.plan_description %></td>
+        <td><%= plan.price %></td>
+        <td><%= plan.active %></td>
+        <td><%= plan.recurring %></td>
+        <td><%= link_to 'Show', plan %></td>
+        <td><%= link_to 'Edit', edit_plan_path(plan) %></td>
+        <td><%= link_to 'Destroy', plan, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Plan', new_plan_path %>
