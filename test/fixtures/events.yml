@@ -1,0 +1,23 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  date: 2014-12-29
+  end_date: 2014-12-29
+  start_time: 2014-12-29 12:30:14
+  end_time: 2014-12-29 12:30:14
+  paid: false
+  private: false
+  description: MyText
+  document: MyText
+  event_cap: 1
+
+two:
+  date: 2014-12-29
+  end_date: 2014-12-29
+  start_time: 2014-12-29 12:30:14
+  end_time: 2014-12-29 12:30:14
+  paid: false
+  private: false
+  description: MyText
+  document: MyText
+  event_cap: 1
