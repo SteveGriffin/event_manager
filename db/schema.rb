@@ -11,13 +11,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141229174342) do
+ActiveRecord::Schema.define(version: 20141229184412) do
 
   create_table "attendees", force: true do |t|
     t.boolean  "volunteer"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "user_id"
+    t.integer  "event_id"
   end
+
+  add_index "attendees", ["event_id"], name: "index_attendees_on_event_id"
+  add_index "attendees", ["user_id"], name: "index_attendees_on_user_id"
 
   create_table "events", force: true do |t|
     t.date     "date"
@@ -31,7 +36,10 @@ ActiveRecord::Schema.define(version: 20141229174342) do
     t.integer  "event_cap"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "user_id"
   end
+
+  add_index "events", ["user_id"], name: "index_events_on_user_id"
 
   create_table "plans", force: true do |t|
     t.string   "plan_type"
@@ -49,7 +57,12 @@ ActiveRecord::Schema.define(version: 20141229174342) do
     t.boolean  "recurring"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "user_id"
+    t.integer  "plan_id"
   end
+
+  add_index "subscriptions", ["plan_id"], name: "index_subscriptions_on_plan_id"
+  add_index "subscriptions", ["user_id"], name: "index_subscriptions_on_user_id"
 
   create_table "users", force: true do |t|
     t.string   "f_name"
