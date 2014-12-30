@@ -1,0 +1,8 @@
+<H1>Event Manager</H1>
+
+<% if current_user != nil %>
+<p>Logged in as: <%= current_user.email %></p>
+<%= link_to "logout", logout_path %>
+<% else %>
+<%= link_to "login", login_path %>
+<% end %>

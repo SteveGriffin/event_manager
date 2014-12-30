@@ -9,6 +9,16 @@ Rails.application.routes.draw do
 
   resources :events
 
+  root :to => redirect('/home')
+
+  # Authenticates the user 
+  get 'login' => 'sessions#login', :as => 'login'
+  post   'login'   => 'sessions#create'
+  # Signs the user out
+  get 'logout' => 'sessions#destroy'
+
+  get 'home' => 'home#home', :as => 'home'
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
