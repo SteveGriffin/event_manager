@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141231164107) do
+ActiveRecord::Schema.define(version: 20141231183857) do
 
   create_table "attendees", force: true do |t|
     t.boolean  "volunteer"
@@ -71,7 +71,7 @@ ActiveRecord::Schema.define(version: 20141231164107) do
     t.string   "l_name"
     t.string   "email"
     t.string   "password_digest"
-    t.boolean  "active"
+    t.boolean  "active",          default: true
     t.string   "address1"
     t.string   "address2"
     t.string   "phone"
@@ -81,6 +81,7 @@ ActiveRecord::Schema.define(version: 20141231164107) do
     t.string   "organization"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.boolean  "admin",           default: false
   end
 
 end

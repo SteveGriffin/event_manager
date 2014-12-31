@@ -1,0 +1,12 @@
+<% if current_user != nil %>
+	<% if current_user.admin %>
+		<h2>All Users</h2>
+		<% if @users != nil %>
+			<% @users.each do |user| %>
+				<li>
+					<a href="<%= edit_event_path(user) %>" title="<%= user.email %>"><%= user.email %></a>
+				</li> 
+			<% end %>			
+		<% end %>
+	<% end %>
+<% end %>
