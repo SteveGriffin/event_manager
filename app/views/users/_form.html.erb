@@ -11,12 +11,13 @@
     </div>
   <% end %>
 
+<h1>Sign Up</h1>
   <div class="field">
-    <%= f.label :f_name %><br>
+    <%= f.label "First Name" %><br>
     <%= f.text_field :f_name %>
   </div>
   <div class="field">
-    <%= f.label :l_name %><br>
+    <%= f.label "Last Name"%><br>
     <%= f.text_field :l_name %>
   </div>
   <div class="field">
@@ -27,36 +28,33 @@
     <%= f.label :password %><br>
     <%= f.text_field :password %>
   </div>
+
   <div class="field">
-    <%= f.label :active %><br>
-    <%= f.check_box :active %>
-  </div>
-  <div class="field">
-    <%= f.label :address1 %><br>
+    <%= f.label :address %><br>
     <%= f.text_field :address1 %>
   </div>
   <div class="field">
-    <%= f.label :address2 %><br>
+    <%= f.label "Address Line 2 (Optional)" %><br>
     <%= f.text_field :address2 %>
   </div>
   <div class="field">
-    <%= f.label :phone %><br>
+    <%= f.label "Phone (optional)" %><br>
     <%= f.text_field :phone %>
   </div>
   <div class="field">
-    <%= f.label :city %><br>
+    <%= f.label "City (optional)" %><br>
     <%= f.text_field :city %>
   </div>
   <div class="field">
-    <%= f.label :state %><br>
+    <%= f.label "State (optional)" %><br>
     <%= f.text_field :state %>
   </div>
   <div class="field">
-    <%= f.label :zip %><br>
+    <%= f.label "Zip (optional)" %><br>
     <%= f.text_field :zip %>
   </div>
   <div class="field">
-    <%= f.label :organization %><br>
+    <%= f.label "Organization (optional)" %><br>
     <%= f.text_field :organization %>
   </div>
   <div class="actions">
