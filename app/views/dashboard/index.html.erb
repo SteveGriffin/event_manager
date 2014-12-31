@@ -1,0 +1,19 @@
+<h2>My Events</h2>
+
+ <% if @events != nil %>
+	<% @events.each do |event| %>
+		<li>
+			<a href="<%= edit_event_path(event) %>" title="<%= event.name %>"><%= event.name %></a>
+			<%= event.date %>
+			<p>Description: <%= event.description %></p>
+		</li> 
+
+	<% end %>
+<% else %>
+	<p>No events scheduled.</p>
+	
+<% end %>
+
+ <%= link_to "Click here to create an event", :controller => :events, :action => :new%>
+ <br />
+ <%= link_to "Logout", :controller => :sessions, :action => :destroy%>

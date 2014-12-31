@@ -12,6 +12,10 @@
   <% end %>
 
   <div class="field">
+    <%= f.label "Event Name" %><br>
+    <%= f.text_area :name %>
+  </div>
+  <div class="field">
     <%= f.label :date %><br>
     <%= f.date_select :date %>
   </div>
@@ -30,6 +34,10 @@
   <div class="field">
     <%= f.label :paid %><br>
     <%= f.check_box :paid %>
+  </div>
+    <div class="field">
+    <%= f.label "Admission Price" %><br>
+    <%= f.text_area :price %>
   </div>
   <div class="field">
     <%= f.label :private %><br>
