@@ -38,3 +38,4 @@ gem 'bcrypt', '~> 3.1.7'
 # Use debugger
 gem 'byebug', group: [:development, :test]
 
+gem 'pry'
