@@ -3,6 +3,7 @@ require 'test_helper'
 class SubscriptionsControllerTest < ActionController::TestCase
   setup do
     @subscription = subscriptions(:one)
+    current_user
   end
 
   test "should get index" do
@@ -18,10 +19,10 @@ class SubscriptionsControllerTest < ActionController::TestCase
 
   test "should create subscription" do
     assert_difference('Subscription.count') do
-      post :create, subscription: { end_date: @subscription.end_date, recurring: @subscription.recurring, start_date: @subscription.start_date }
+      post :create, :set_subscription, subscription: {user_id: @subscription.user_id, plan_id: @subscription.plan_id, end_date: @subscription.end_date, recurring: @subscription.recurring, start_date: @subscription.start_date }
     end
 
-    assert_redirected_to subscription_path(assigns(:subscription))
+    assert_redirected_to subscription_path(assigns(@subscription.id))
   end
 
   test "should show subscription" do

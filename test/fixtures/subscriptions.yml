@@ -4,8 +4,12 @@ one:
   start_date: 2014-12-29
   end_date: 2014-12-29
   recurring: false
+  user_id: 1
+  plan_id: 1
 
 two:
   start_date: 2014-12-29
   end_date: 2014-12-29
   recurring: false
+  user_id: 2
+  plan_id: 2

@@ -3,6 +3,7 @@ require 'test_helper'
 class EventsControllerTest < ActionController::TestCase
   setup do
     @event = events(:one)
+    current_user
   end
 
   test "should get index" do
@@ -18,7 +19,7 @@ class EventsControllerTest < ActionController::TestCase
 
   test "should create event" do
     assert_difference('Event.count') do
-      post :create, event: { date: @event.date, description: @event.description, document: @event.document, end_date: @event.end_date, end_time: @event.end_time, event_cap: @event.event_cap, paid: @event.paid, private: @event.private, start_time: @event.start_time }
+      post :create, event: { date: @event.date, user_id: 1, description: @event.description, document: @event.document, end_date: @event.end_date, end_time: @event.end_time, event_cap: @event.event_cap, paid: @event.paid, private: @event.private, start_time: @event.start_time }
     end
 
     assert_redirected_to event_path(assigns(:event))
@@ -35,7 +36,7 @@ class EventsControllerTest < ActionController::TestCase
   end
 
   test "should update event" do
-    patch :update, id: @event, event: { date: @event.date, description: @event.description, document: @event.document, end_date: @event.end_date, end_time: @event.end_time, event_cap: @event.event_cap, paid: @event.paid, private: @event.private, start_time: @event.start_time }
+    patch :update, :set_event, id: @event, event: { date: @event.date, description: @event.description, document: @event.document, end_date: @event.end_date, end_time: @event.end_time, event_cap: @event.event_cap, paid: @event.paid, private: @event.private, start_time: @event.start_time }
     assert_redirected_to event_path(assigns(:event))
   end
 
@@ -44,6 +45,11 @@ class EventsControllerTest < ActionController::TestCase
       delete :destroy, id: @event
     end
 
-    assert_redirected_to events_path
+    assert_redirected_to events_paths
   end
+
+  # test "should return attendees" do
+
+  # end
+
 end

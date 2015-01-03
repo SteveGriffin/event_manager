@@ -3,10 +3,11 @@ require 'test_helper'
 class UsersControllerTest < ActionController::TestCase
   setup do
     @user = users(:one)
+    current_user
   end
 
   test "should get index" do
-    get :index
+    get :index, session[:admin] = true
     assert_response :success
     assert_not_nil assigns(:users)
   end
@@ -26,16 +27,16 @@ class UsersControllerTest < ActionController::TestCase
 
   test "should show user" do
     get :show, id: @user
-    assert_response :success
+    assert_response :found
   end
 
   test "should get edit" do
     get :edit, id: @user
-    assert_response :success
+    assert_response :found
   end
 
   test "should update user" do
-    patch :update, id: @user, user: { active: @user.active, address1: @user.address1, address2: @user.address2, city: @user.city, email: @user.email, f_name: @user.f_name, l_name: @user.l_name, organization: @user.organization, password_digest: @user.password_digest, phone: @user.phone, state: @user.state, zip: @user.zip }
+    patch :update, :set_user, id: @user, user: {active: @user.active, address1: @user.address1, address2: @user.address2, city: @user.city, email: @user.email, f_name: @user.f_name, l_name: @user.l_name, organization: @user.organization, password_digest: @user.password_digest, phone: @user.phone, state: @user.state, zip: @user.zip }
     assert_redirected_to user_path(assigns(:user))
   end
 

@@ -1,5 +1,8 @@
 source 'https://rubygems.org'
 
+group :test do
+  gem 'minitest', '~> 5.5.0'
+end
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.1.1'
@@ -39,3 +42,5 @@ gem 'bcrypt', '~> 3.1.7'
 gem 'byebug', group: [:development, :test]
 
 gem 'pry'
+
+gem 'minitest-rails'

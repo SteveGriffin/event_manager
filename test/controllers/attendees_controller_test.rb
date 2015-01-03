@@ -3,6 +3,7 @@ require 'test_helper'
 class AttendeesControllerTest < ActionController::TestCase
   setup do
     @attendee = attendees(:one)
+    current_user
   end
 
   test "should get index" do
@@ -18,7 +19,7 @@ class AttendeesControllerTest < ActionController::TestCase
 
   test "should create attendee" do
     assert_difference('Attendee.count') do
-      post :create, attendee: { volunteer: @attendee.volunteer }
+      post :create, :set_attendee, attendee: { volunteer: @attendee.volunteer }
     end
 
     assert_redirected_to attendee_path(assigns(:attendee))
@@ -35,7 +36,7 @@ class AttendeesControllerTest < ActionController::TestCase
   end
 
   test "should update attendee" do
-    patch :update, id: @attendee, attendee: { volunteer: @attendee.volunteer }
+    patch :update, :set_attendee, id: @attendee, attendee: { volunteer: @attendee.volunteer }
     assert_redirected_to attendee_path(assigns(:attendee))
   end
 
