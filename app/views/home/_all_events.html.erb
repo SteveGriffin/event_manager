@@ -3,7 +3,7 @@
 <% if @events != nil %>
 	<% @events.each do |event| %>
 		<li>
-			<a href="<%= edit_event_path(event) %>" title="<%= event.name %>"><%= event.name %></a>
+			<a href="<%= event_path(event) %>" title="<%= event.name %>"><%= event.name %></a>
 			<%= event.date %>
 			<p>Description: <%= event.description %></p>
 		</li> 

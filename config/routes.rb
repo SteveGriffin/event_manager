@@ -20,7 +20,8 @@ Rails.application.routes.draw do
   get 'home' => 'home#home', :as => 'home'
   get 'signup' => 'users#new'
   get 'dashboard' => 'dashboard#index'
-  get 'event_template' => 'event_template#index', :as => 'show_event'
+  #get 'event_template' => 'event_template#index', :as => 'show_event'
+  get 'events/:id' => 'events#show'
   get 'events/register/:id' => 'events#register'
 
   # The priority is based upon order of creation: first created -> highest priority.

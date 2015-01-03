@@ -66,10 +66,10 @@ class EventsController < ApplicationController
     end
   end
 
-  #get the total number of attendees
+  #get collection of attendees
   helper_method :event_count
   def event_count
-    @count = Attendee.count(:id => params[:id])
+    @count = Attendee.where(:event_id => params[:id])
   end
 
   #get the number of remaining slots left
@@ -78,7 +78,7 @@ class EventsController < ApplicationController
     #load current event
     @event = Event.find(params[:id])
     #get the count of the event from the event_count action
-    count = self.event_count
+    count = self.event_count.count
     #get the cap from the current event
     cap = @event.event_cap
 
@@ -104,12 +104,16 @@ class EventsController < ApplicationController
       #see if user is already registered for the event
       begin
         registration_status = Attendee.where("user_id = ? AND event_id = ?", current_user.id, params[:id])
-        found = true
-      rescue ActiveRecord::RecordNotFound => e
-        #not found
-        if registration_status != nil
+        #check the count of the returned object.  If greater than 0, user is already registered
+        if registration_status.count > 0
           found = true
         end
+      rescue ActiveRecord::RecordNotFound => e
+        #not found
+        # if registration_status > 0
+        #   found = true
+        # end
+        puts e.to_s
       end
 
       #if user is already registered, notify them and do nothing
@@ -127,7 +131,7 @@ class EventsController < ApplicationController
 
   helper_method :get_attendees
   def get_attendees
-    @attendees = Attendee.find(params[:id])
+    @attendees = Attendee.where(:event_id => params[:id])
   end
 
   private

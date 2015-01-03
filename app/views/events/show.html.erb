@@ -27,15 +27,15 @@
 <p><b><%= @event.event_cap %></b></p>
 
 <h2>Total People Registered For Event:</h2>
-<p><b><%= event_count %></b></p>
+<p><b><%= event_count.count %></b></p>
 
 <h2>Number of Remaining Attendee Openings:</h2>
 <p><b><%= remaining_slots %></b></p>
 
 <h2>Attendees:</h2>
-<p><b><%= get_attendees %></b></p>
+<p><b><%= get_attendees.count %></b></p>
 
 <%= link_to "Register For This Event", :controller => :events, :action => :register %>
 
 <%= link_to 'Edit', edit_event_path(@event) %> |
-<%= link_to 'Back', events_path %>
+<%= link_to 'Back', home_path %>
