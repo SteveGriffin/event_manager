@@ -1,10 +1,11 @@
 class EventsController < ApplicationController
-  before_action :event_count, :remaining_slots, :set_event, only: [:show, :edit, :update, :destroy]
+  before_action :event_count, :remaining_slots, :creator?, :set_event, only: [:show, :edit, :update, :destroy]
   #before_filter :authorize
 
   #helper_method :event_count
   # GET /events
   # GET /events.json
+
   def index
     @events = Event.all
   end
@@ -13,7 +14,7 @@ class EventsController < ApplicationController
   # GET /events/1.json
   def show
     :set_event
-    :event_count
+    :event_counts
   end
 
   # GET /events/new
@@ -127,6 +128,8 @@ class EventsController < ApplicationController
 
       render 'show'
     end
+
+
   end
 
   helper_method :get_attendees
@@ -143,6 +146,15 @@ class EventsController < ApplicationController
   # Never trust parameters from the scary internet, only allow the white list through.
   def event_params
     params.require(:event).permit(:date, :end_date, :start_time, :end_time, :paid, :private, :description, :document, :event_cap, :price, :name, :user_id)
+  end
+
+  #returns true or false depending on whether the user is the creator of the event
+  def creator?
+    if session[:user_id] == @event.id
+      @creator = true
+    else
+      @creator = false
+    end
   end
 
 end

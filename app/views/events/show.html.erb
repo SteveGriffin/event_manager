@@ -1,5 +1,12 @@
 <h1><%= @event.name %></h1><br />
 
+<% if @creator %>
+<h2>You are the creator of this event</h2>
+<% else %>
+<% end %>
+<br />
+
+
 <%= flash[:notice] %>
 
 <h2>Event Description:</h2>
