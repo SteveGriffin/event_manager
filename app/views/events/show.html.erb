@@ -42,6 +42,11 @@
 <h2>Attendees:</h2>
 <p><b><%= get_attendees.count %></b></p>
 
+<% if @creator || session[:admin] = true %>
+	<%= render 'attendees' %>
+<% end %>
+
+
 <%= link_to "Register For This Event", :controller => :events, :action => :register %>
 
 <%= link_to 'Edit', edit_event_path(@event) %> |

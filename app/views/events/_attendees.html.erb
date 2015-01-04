@@ -1,0 +1,10 @@
+<h2><%= @event.name %> Attendees</h2>
+
+<div id = "attendees">
+<% @attendee_info.each do |attendee|%>
+<p><b>First Name:</b> <%=attendee.f_name %>
+<b>Last Name:</b><%= attendee.l_name %>
+<b>Email:</b> <%= attendee.email %></p>
+<% end %>
+</div>
+

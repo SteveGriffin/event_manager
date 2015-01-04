@@ -1,5 +1,5 @@
 class EventsController < ApplicationController
-  before_action :event_count, :remaining_slots, :creator?, :set_event, only: [:show, :edit, :update, :destroy]
+  before_action :event_count, :remaining_slots, :get_attendee_information, :creator?, :set_event, only: [:show, :edit, :update, :destroy]
   #before_filter :authorize
 
   #helper_method :event_count
@@ -136,6 +136,13 @@ class EventsController < ApplicationController
   def get_attendees
     @attendees = Attendee.where(:event_id => params[:id])
   end
+
+  #Load users who are attending this event.  .pluck returns array, possible use for future
+  #helper_method :get_attendee_information
+  def get_attendee_information
+    @attendee_info = User.joins(:attendees).where(attendees: {event_id: params[:id]}) #.pluck(:email, :f_name, :l_name)
+  end
+
 
   private
   # Use callbacks to share common setup or constraints between actions.
