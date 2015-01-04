@@ -1,4 +1,8 @@
 <h1><%= @event.name %></h1><br />
+creator:<%= @creator.inspect%>
+admin:<%= session[:admin].inspect%>
+user id:<%= session[:user_id].inspect%>
+
 
 <% if @creator %>
 <h2>You are the creator of this event</h2>
@@ -42,8 +46,9 @@
 <h2>Attendees:</h2>
 <p><b><%= get_attendees.count %></b></p>
 
-<% if @creator || session[:admin] = true %>
+<% if @creator || session[:admin] == true %>
 	<%= render 'attendees' %>
+<% else %>
 <% end %>
 
 
