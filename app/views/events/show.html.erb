@@ -17,13 +17,13 @@ user id:<%= session[:user_id].inspect%>
 <p><b><%= @event.description %></b></p>
 
 <h2>Event Date:</h2>
-<p><b><%= @event.date %></b></p>
+<p><b><%= @event.date.to_s %></b></p>
 
 <h2>Start Time:</h2>
-<p><b><%= @event.start_time %></b></p>
+<p><b><%= @event.start_time.strftime("%I:%M %p")  %></b></p>
 
 <h2>End Time:</h2>
-<p><b><%= @event.end_time %></b></p>
+<p><b><%= @event.end_time.strftime("%I:%M %p") %></b></p>
 
 <h2>Private Event?</h2>
 <p><b>
