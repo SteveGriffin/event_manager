@@ -98,7 +98,7 @@ class EventsController < ApplicationController
     @event = Event.find(params[:id])
 
     found = false
-
+    binding.pry
     if current_user.nil?
       redirect_to "/login"
     else
