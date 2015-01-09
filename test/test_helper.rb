@@ -13,9 +13,5 @@ class ActiveSupport::TestCase
   # -- they do not yet inherit this setting
   fixtures :all
 
-  # Add more helper methods to be used by all tests here...
-  def current_user
-  	session[:user_id] = 1
-    @current_user = 1
-  end
+
 end

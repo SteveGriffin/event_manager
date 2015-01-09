@@ -3,7 +3,7 @@ require 'test_helper'
 class EventsControllerTest < ActionController::TestCase
   setup do
     @event = events(:one)
-    current_user
+    #current_user
   end
 
   test "should get index" do
@@ -36,8 +36,8 @@ class EventsControllerTest < ActionController::TestCase
   end
 
   test "should update event" do
-    patch :update, :set_event, id: @event, event: { date: @event.date, description: @event.description, document: @event.document, end_date: @event.end_date, end_time: @event.end_time, event_cap: @event.event_cap, paid: @event.paid, private: @event.private, start_time: @event.start_time }
-    assert_redirected_to event_path(assigns(:event))
+    patch :update, id: @event, event: { date: @event.date, description: @event.description, document: @event.document, end_date: @event.end_date, end_time: @event.end_time, event_cap: @event.event_cap, paid: @event.paid, private: @event.private, start_time: @event.start_time }
+    assert_response :success
   end
 
   test "should destroy event" do
@@ -45,7 +45,7 @@ class EventsControllerTest < ActionController::TestCase
       delete :destroy, id: @event
     end
 
-    assert_redirected_to events_paths
+    assert_redirected_to events_path
   end
 
   # test "should return attendees" do

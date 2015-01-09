@@ -1,11 +1,12 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
+  id: 6
   f_name: MyString
   l_name: MyString
-  email: MyString
+  email: admin1@admin.com
   password_digest: MyString
-  active: false
+  active: true
   address1: MyString
   address2: MyString
   phone: MyString
@@ -13,8 +14,10 @@ one:
   state: MyString
   zip: MyString
   organization: MyString
-
+  admin: false
+  
 two:
+  id: 10
   f_name: MyString
   l_name: MyString
   email: MyString

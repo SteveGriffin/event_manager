@@ -2,6 +2,10 @@
 
 one:
   volunteer: false
+  user_id: 25
+  event_id: 25
 
 two:
   volunteer: false
+  user_id: MyString
+  event_id: MyString

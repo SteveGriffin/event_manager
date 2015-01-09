@@ -18,4 +18,7 @@ class ApplicationController < ActionController::Base
     redirect_to login_url, alert: "You must sign in to access this page." if current_user.nil?
   end
   
+  def set_event
+    @event = Event.find(params[:id])
+  end
 end
